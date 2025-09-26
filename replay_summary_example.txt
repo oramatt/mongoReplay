@@ -1,0 +1,48 @@
+MongoDB Workload Replay Summary
+Timestamp:            2025-09-26_14-04-00
+Input File:           demo.json
+Mongo URI:            mongodb://matt:***@127.0.0.1:27017/matt?authMechanism=PLAIN&authSource=$external&retryWrites=false&loadBalanced=true&tls=true&tlsAllowInvalidCertificates=true
+Original DB(s):       test
+Overridden DB Used:   matt
+Dry Run:              No
+
+Total operations:     146
+Successful:           145
+Failed:               1
+
+Breakdown by operator:
+  count           success=  7  fail=  0
+  find            success= 35  fail=  0
+  getMore         success= 37  fail=  0
+  aggregate       success= 35  fail=  1
+  q               success=  2  fail=  0
+  insert          success= 13  fail=  0
+  dbStats         success=  9  fail=  0
+  listIndexes     success=  4  fail=  0
+  collStats       success=  1  fail=  0
+  drop            success=  1  fail=  0
+  findAndModify   success=  1  fail=  0
+
+Top 5 Most Frequent Operations:
+  getMore         - 37 times
+  aggregate       - 36 times
+  find            - 35 times
+  insert          - 13 times
+  dbStats         - 9 times
+
+Operations by Collection:
+  test.registrations        - 124 operations
+  test.system.profile       - 11 operations
+  test.system.js            - 2 operations
+
+Failure Summary:
+  Stage $listSearchIndexes is not supported., full error - 1
+
+Skipped Operations:
+  Skipped: unknown command                 - 9
+  Skipped: unsupported op_type (getmore)   - 37
+  Skipped: unsupported op_type (update)    - 2
+  Skipped: unsupported op_type (insert)    - 13
+
+Detailed Failed Operations:
+  Failed Operation: {"op": "command", "ns": "test.registrations", "command": {"aggregate": "registrations", "pipeline": [{"$listSearchIndexes": {}}], "cursor": {}, "lsid": {"id": {"$binary": {"base64": "hXldF/6TR7+Ha3ntVCAhxQ==", "subType": "04"}}}, "$db": "test"}, "numYield": 0, "locks": {"Global": {"acquireCount": {"r": 1}}}, "flowControl": {}, "ok": 0.0, "errMsg": "Using Atlas Search Database Commands and the $listSearchIndexes aggregation stage requires additional configuration. Please connect to Atlas or an AtlasCLI local deployment to enable. For more information on how to connect, see https://dochub.mongodb.org/core/atlas-cli-deploy-local-reqs.", "errName": "SearchNotEnabled", "errCode": 31082, "responseLength": 380, "protocol": "op_msg", "cpuNanos": 1953628, "millis": 6, "ts": {"$date": "2025-09-26T17:51:07.588Z"}, "client": "10.89.0.2", "appName": "MongoDB Compass", "allUsers": [], "user": ""}
