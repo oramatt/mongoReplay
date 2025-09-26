@@ -109,14 +109,14 @@ python mongoReplay.py --file /tmp/demo.json --uri "mongodb://matt:xxxx@127.0.0.1
 
 ```mermaid
 flowchart TD
-    A[Enable Profiling: db.setProfilingLevel(2)] --> B[Export profiler data with mongoProfileExport.sh]
+    A[Enable Profiling (setProfilingLevel 2)] --> B[Export profiler data with mongoProfileExport.sh]
     B --> C[Replay tool consumes JSON/JSONL file]
     C --> D[Connect to MongoDB via MongoClient]
     D --> E{Dry Run?}
     E -->|Yes| F[Simulate Operations Only]
     E -->|No| G[Replay Operations on Target DB]
 
-    G --> H[Handle Supported Ops: find, aggregate, insert, stats...]
+    G --> H[Handle Supported Ops: find, aggregate, insert, stats]
     G --> I[Skip Unsupported Ops]
 
     F --> J[Track Results and Counters]
