@@ -54,7 +54,7 @@ pip install -r requirements.txt
 ```
 
 **Dependencies:**
-- Python 3.7+
+- Python 3.13+
 - `pymongo`
 - `tqdm`
 
