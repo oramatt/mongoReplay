@@ -109,7 +109,7 @@ python mongoReplay.py --file /tmp/demo.json --uri "mongodb://matt:xxxx@127.0.0.1
 
 ```mermaid
 flowchart TD
-    A[Enable Profiling (setProfilingLevel 2)] --> B[Export profiler data with mongoProfileExport.sh]
+    A[Enable Profiling] --> B[Export profiler data with mongoProfileExport.sh]
     B --> C[Replay tool consumes JSON/JSONL file]
     C --> D[Connect to MongoDB via MongoClient]
     D --> E{Dry Run?}
