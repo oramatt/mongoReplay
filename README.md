@@ -1,4 +1,5 @@
 # mongoReplay
+![Domain](https://img.shields.io/badge/domain-database_migrations-orange)
 
 `mongoReplay.py` is a **MongoDB workload replay tool**.  
 It takes JSON/JSONL files containing MongoDB operations (captured from profiling, logs, or exports), replays them against a target MongoDB instance, and produces detailed logs and summary reports.
